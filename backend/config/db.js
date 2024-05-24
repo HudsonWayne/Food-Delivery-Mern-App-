@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 
-export const connectBD = async ()=>{
-    await mongoose.connect('mongodb+srv://hudsonnbenhuraa:<password>@cluster0.ir3wyw4.mongodb.net/').then(()=>console.log("DB Connected"));
-}
+// db connection
+// Database Connection
+mongoose.connect("mongodb+srv://hudsonnbenhuraa:<password>@cluster0.5nrizx2.mongodb.net/food-del")
+  .then(() => console.log("DB Connected"))
+  .catch((err) => console.error("DB Connection Error:", err));
