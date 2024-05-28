@@ -1,23 +1,21 @@
-import express from "express";
-import cors from "cors";
-import mongoose from "mongoose";
-
-// App Configuration
-const app = express();
-const port = 4000;
-
-// Middleware
-app.use(express.json());
-app.use(cors());
+import express from "express"
+import cors from "cors"
 
 
-// Routes
-app.get("/", (req, res) => {
-  res.send("API Working");
-});
 
-// Server Start
-app.listen(port, () => {
-  console.log(`Server started on http://localhost:${port}`);
-});
+//app config
+const app = express()
 
+const port = 4000
+
+//middleware
+app.use(express.json())
+app.use(cors())
+
+app.get("/",(req,res)=>{
+    res.send("API working")
+})
+
+app.listen(port,()=>{
+    console.log(`Server running on port ${port}`)
+})
