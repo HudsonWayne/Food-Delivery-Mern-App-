@@ -1,24 +1,26 @@
-import express from "express"
-import cors from "cors"
+import express from "express";
+import cors from "cors";
+import { connectDB } from "./config/db.js"; // Assuming connectDB is exported
 
+const app = express();
 
+const port = 4000;
 
-//app config
-const app = express()
+// Middleware
+app.use(express.json());
+app.use(cors());
 
-const port = 4000
+// Database connection (call the imported function)
+connectDB();
 
-//middleware
-app.use(express.json())
-app.use(cors())
+app.get("/", (req, res) => {
+  res.send("API working");
+});
 
-app.get("/",(req,res)=>{
-    res.send("API working")
-})
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
 
-app.listen(port,()=>{
-    console.log(`Server running on port ${port}`)
-})
-
-//mongodb+srv://hudson:hudsonwayne@cluster0.qzxfxbw.mongodb.net/?
-
+export async function connectDB() {
+    console.log("hdjd")
+  }

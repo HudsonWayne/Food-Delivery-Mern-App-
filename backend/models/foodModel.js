@@ -8,4 +8,5 @@ const foodSchema = new mongoose.Schema({
     category: {type:String,required:true},
 })
 
-const foodModel = mongoose.model("food",foodSchema)
+const foodModel = mongoose.models.food || mongoose.model("food",foodSchema);
+export default foodModel;
