@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import foodRouter from "./routes/foodRoutes.js";
 
 const app = express();
 
@@ -14,6 +15,8 @@ async function connectDB() {
   console.log("DB Connected"); // Replace with your actual connection logic
   // ...
 }
+//API EndPoints
+app.use("/api/food", foodRouter)
 
 connectDB(); // Call the function
 
