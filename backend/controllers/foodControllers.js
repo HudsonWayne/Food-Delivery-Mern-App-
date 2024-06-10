@@ -1,10 +1,10 @@
-import foodModel from "../models/foodModel";
+import foodModel from "../models/foodModel.js";
 
 import fs from 'fs'
 
 //add food item
 
-const addFood = async () => {
+const addFood = async (res,req) => {
 
 }
 

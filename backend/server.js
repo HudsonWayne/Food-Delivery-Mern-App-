@@ -11,7 +11,7 @@ app.use(cors());
 
 // Database connection (assuming connectDB is defined here)
 async function connectDB() {
-  console.log("hdjd"); // Replace with your actual connection logic
+  console.log("DB Connected"); // Replace with your actual connection logic
   // ...
 }
 
