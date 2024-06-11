@@ -1,13 +1,17 @@
 import express from "express";
 import cors from "cors";
-import foodRouter from "./routes/foodRoutes.js";
+import foodRouter from "./routes/foodRoute.js";
+import bodyParser from "body-parser";
 
 const app = express();
+
 
 const port = 4000;
 
 // Middleware
-app.use(express.json());
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended : true}))
+
 app.use(cors());
 
 // Database connection (assuming connectDB is defined here)
