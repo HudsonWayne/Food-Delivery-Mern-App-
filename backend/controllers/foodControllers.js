@@ -2,7 +2,6 @@ import foodModel from "../models/foodModel.js";
 
 // Add food item
 const addFood = async (req, res) => {
-
   let image_filename;
 
   // Check if a file was uploaded using Multer (assuming Multer is configured)
@@ -10,16 +9,21 @@ const addFood = async (req, res) => {
     image_filename = `${req.file.filename}`;
   } else {
     console.log("No file uploaded");
-    // Handle the case where no file is uploaded (optional)
+    // Handle no file upload (e.g., set default image or send error)
+    // You can set a default image path here:
+    // image_filename = "default.jpg";
+    // Or send an error response
+    // return res.json({ success: false, message: "No file uploaded" });
   }
-console.log(req.files)
-  return res.json({properties : req.files})
 
-  // Validate required fields before creating the food object
-  const requiredFields = ['name', 'description', 'price', 'category' ,'image'];
+  // Log the entire request body for debugging
+  console.log("Received data:", req.body);
+
+  // Validate required fields from the request body
+  const requiredFields = ['name', 'description', 'price', 'category', 'image'];
   const missingFields = requiredFields.filter(field => !req.body[field]);
 
-  if (missingFields.length ) {
+  if (missingFields.length) {
     return res.json({ success: false, message: `Missing required fields: ${missingFields.join(', ')}` });
   }
 

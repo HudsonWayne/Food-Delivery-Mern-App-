@@ -21,6 +21,7 @@ async function connectDB() {
 }
 //API EndPoints
 app.use("/api/food", foodRouter)
+app.use("/images",express.static('uploads'))
 
 connectDB(); // Call the function
 
